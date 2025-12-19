@@ -17,7 +17,7 @@
                 <div class="navbar-nav">
                     <a class="nav-link active" aria-current="page" href="<?php echo BASEURL; ?>">Home</a>
                     <a class="nav-link" href="<?= BASEURL; ?>/about">About</a>
-                    
+                    <a class="nav-link" href="<?= BASEURL; ?>/siswa">DaftarSiswa</a>        
                 </div>
             </div>
         </div>
