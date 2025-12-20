@@ -15,4 +15,28 @@ class siswa extends Controller {
         $this->view('siswa/detail', $data);
         $this->view('templates/footer');
     }
+
+    public function tambah(){
+        if($this->model('siswa_model')->tambahDataSiswa($_POST) > 0){
+            Flasher::setFlash('berhasil', 'ditambahkan','success');
+            header('location:' . BASEURL .'/siswa');
+        }else{
+            Flasher::setFlash('gagal', 'ditambahkan','warning');
+            header('location:' . BASEURL .'/siswa');
+        }
+    }
+
+    public function hapus($id){
+       if($this->model('siswa_model')->hapusDataSiswa($id) > 0){
+            Flasher::setFlash('berhasil', 'dihapus', 'success');
+            header('location:' . BASEURL .'/siswa');
+       }else{
+        Flasher::setFlash('gagal', 'dihapus', 'warning');
+        header('location:' . BASEURL . '/siswa');
+       }
+    }
+
+    public function ubah(){
+
+    }
 }
