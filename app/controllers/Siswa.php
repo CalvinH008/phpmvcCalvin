@@ -37,6 +37,22 @@ class siswa extends Controller {
     }
 
     public function ubah(){
-
+        // Jika request AJAX (untuk ambil data)
+        if(isset($_POST['ajax']) && $_POST['ajax'] == 'true'){
+            header('Content-Type: application/json');
+            echo json_encode($this->model('Siswa_model')->getSiswaById($_POST['id']));
+            exit;
+        }
+        
+        // Jika bukan AJAX (untuk update data)
+        if($this->model('Siswa_model')->ubahDataSiswa($_POST) > 0){
+            Flasher::setFlash('berhasil','diubah','success');
+            header('Location: ' . BASEURL . '/siswa');
+            exit;
+        }else{
+            Flasher::setFlash('gagal', 'diubah', 'warning');
+            header('Location: ' . BASEURL . '/siswa');
+            exit;
+        }
     }
 }
