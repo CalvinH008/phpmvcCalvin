@@ -4,13 +4,32 @@
             <?php flasher::flash(); ?>
         </div>
     </div>
+
+    <div class="container mb-3">
+      <div class="col-lg-2">
     <div class="row">
-        <div class="col-lg-6">
-            <!-- ✅ Ganti jadi "tampilTambahData" biar sama dengan JS -->
-            <button type="button" class="btn btn-primary tombolTambahData" data-bs-toggle="modal" data-bs-target="#formModal">
+        <button type="button" class="btn btn-primary tombolTambahData" data-bs-toggle="modal" data-bs-target="#formModal">
                 Insert Data Siswa
             </button>
-            <br>
+    </div>
+      </div>
+    </div>
+
+        <div class="row">
+        <div class="col-lg-6">
+            <form action="<?= BASEURL; ?>/siswa/cari" method="post">
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Cari Siswa" name="keyword" id="keyword" autocomplete="off">
+                <button class="btn btn-primary" type="submit" id="tombolCari">Cari</button>
+              </div>
+
+            </form>
+        </div>
+    </div>
+
+      
+    <div class="row">
+        <div class="col-lg-6">
             <h3>Daftar Siswa</h3>
             <ul class="list-group">
                 <?php foreach($data["siswa"] as $siswa): ?>
